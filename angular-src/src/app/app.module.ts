@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FirebaseApp, AngularFireModule } from '@angular/fire';
@@ -33,10 +35,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     HttpModule,
     MaterialModule,
+    FormsModule,
     BrowserAnimationsModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
+  entryComponents: [LoanComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

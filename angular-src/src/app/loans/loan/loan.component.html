@@ -1,3 +1,28 @@
-<p>
-  loan works!
-</p>
+<h2 mat-dialog-title>Title {{$key ? 'Edit' : 'Add'}}</h2>
+
+<mat-dialog-content>
+  <form #loanForm="ngForm" class="loan-form" (ngSubmit)="onSubmit(loanForm)">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="loanService.selectedLoan.$key">
+    <mat-form-field>
+      <input type="text" matInput placeholder="Loan Name" name="name" #name="ngModel" [(ngModel)]="loanService.selectedLoan.name">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="number" matInput placeholder="Payoff Amount" name="payoff_amt" #name="ngModel" [(ngModel)]="loanService.selectedLoan.payoff_amt">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="number" matInput placeholder="Interest Rate" name="interest_rate" #interest_rate="ngModel"
+        [(ngModel)]="loanService.selectedLoan.interest_rate">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="number" matInput placeholder="Minimum Monthly Payment" name="min_monthly_payment"
+        #min_monthly_payment="ngModel" [(ngModel)]="loanService.selectedLoan.min_monthly_payment">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Loan Type" name="type" #type="ngModel" [(ngModel)]="loanService.selectedLoan.type">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+    <button mat-raised-button color="primary" type="button" (click)="resetForm(loanForm)">Cancel</button>
+
+  </form>
+</mat-dialog-content>
