@@ -1,0 +1,35 @@
+<mat-drawer-container class="page-container">
+  <mat-drawer #sidenav class="side-nav-container" [mode]="(screenWidth > 768) ? 'side' : 'over'" [opened]="screenWidth > 768">
+    <ul>
+      <li>
+        <a href="#">Loans</a>
+      </li>
+      <li>
+        <a href="#">Alerts</a>
+      </li>
+      <li>
+        <a href="#">Payments</a>
+      </li>
+      <li>
+        <a href="#">Profile Settings</a>
+      </li>
+      <li>
+        <a href="#">Glossary of Terms</a>
+      </li>
+    </ul>
+  </mat-drawer>
+  <mat-drawer-content class="dashboard-container">
+    <div [ngStyle]="{'display' : (screenWidth > 768) ? 'none' : 'block'}">
+      <button type="button" mat-button (click)="sidenav.open()">
+        <span class="mat-button-wrapper">
+          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">menu</mat-icon>
+        </span>
+        <div class="mat-button-ripple mat-ripple" matripple=""></div>
+        <div class="mat-button-focus-overlay"></div>
+      </button>
+    </div>
+  
+    <app-dashboard></app-dashboard>
+
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,20 @@
+.page-container {
+    width: 100%;
+    border: 1px solid #555;
+    .side-nav-container {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+    }
+    .dashboard-container {
+        min-height: 100vh;
+    }
+  }
+
+  .toggle-nav-btn {
+      width: 40px;
+      padding: 1rem;
+      cursor: pointer;
+  }
