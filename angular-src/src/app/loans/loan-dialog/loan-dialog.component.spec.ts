@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoanComponent } from './loan.component';
+import { LoanComponent } from './loan-dialog.component';
 
 describe('LoanComponent', () => {
   let component: LoanComponent;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { LoanComponent } from '../loans/loan/loan.component';
+import { LoanComponent } from '../loans/loan-dialog/loan-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,11 +14,15 @@ export class DashboardComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(LoanComponent, {
+      disableClose: true,
+      data: {
+        'formtype': 'add'
+      }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    // });
   }
 
 

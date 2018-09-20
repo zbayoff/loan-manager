@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Title {{$key ? 'Edit' : 'Add'}}</h2>
+<h2 mat-dialog-title>{{data.formtype | uppercase}} LOAN</h2>
 
 <mat-dialog-content>
   <form #loanForm="ngForm" class="loan-form" (ngSubmit)="onSubmit(loanForm)">
@@ -21,7 +21,7 @@
       <input type="text" matInput placeholder="Loan Type" name="type" #type="ngModel" [(ngModel)]="loanService.selectedLoan.type">
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Submit</button>
+    <button mat-raised-button color="primary" type="submit">{{(data.formtype === 'edit') ? 'Save' : 'Add'}}</button>
     <button mat-raised-button color="primary" type="button" (click)="resetForm(loanForm)">Cancel</button>
 
   </form>

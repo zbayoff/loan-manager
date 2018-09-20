@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { LoanComponent } from '../loan/loan.component';
+import { LoanComponent } from '../loan-dialog/loan-dialog.component';
 
 import { LoanService } from '../shared/loan.service';
 import { Loan } from '../shared/loan.model';
@@ -22,7 +22,12 @@ export class LoanListComponent implements OnInit {
 
   onEdit(loan: Loan) {
     this.loanService.selectedLoan = Object.assign({}, loan);
-    this.dialog.open(LoanComponent);
+    this.dialog.open(LoanComponent, {
+      disableClose: true,
+      data: {
+        'formtype': 'edit'
+      }
+    });
   }
 
 
@@ -37,7 +42,6 @@ export class LoanListComponent implements OnInit {
 
   ngOnInit() {
     const x = this.loanService.getData();
-
     x.snapshotChanges().subscribe(item => {
       this.loanList = [];
       item.forEach(ele => {
@@ -45,14 +49,8 @@ export class LoanListComponent implements OnInit {
         y['$key'] = ele.key;
         this.loanList.push(y as Loan);
       });
-
-
       this.dataSource.data = this.loanList;
-
     });
-
-
-
   }
 
 }

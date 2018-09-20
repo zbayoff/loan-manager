@@ -1,11 +1,8 @@
 <h2>Your Loans</h2>
 
-<div class="table-container">
+
+<div class="table-container" *ngIf="dataSource.data.length !== 0; else emptyTable">
   <table mat-table [dataSource]="loanList" class="mat-elevation-z8 loan-table">
-
-    <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
     <!-- name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -24,27 +21,31 @@
     <!-- interest_rate Column -->
     <ng-container matColumnDef="interest_rate">
       <th mat-header-cell *matHeaderCellDef>Interest Rate</th>
-      <td mat-cell *matCellDef="let element"><span class="mobile-label">Interest Rate </span> {{element.interest_rate}}
+      <td mat-cell *matCellDef="let element">
+        <span class="mobile-label">Interest Rate </span> {{element.interest_rate}}
       </td>
     </ng-container>
 
     <!-- min_monthly_payment Column -->
     <ng-container matColumnDef="min_monthly_payment">
       <th mat-header-cell *matHeaderCellDef>Min. Monthly Payment</th>
-      <td mat-cell *matCellDef="let element"><span class="mobile-label">Min. Monthly Payment </span>
+      <td mat-cell *matCellDef="let element">
+        <span class="mobile-label">Min. Monthly Payment </span>
         {{element.min_monthly_payment}} </td>
     </ng-container>
 
     <!-- type Column -->
     <ng-container matColumnDef="type">
       <th mat-header-cell *matHeaderCellDef>Type</th>
-      <td mat-cell *matCellDef="let element"><span class="mobile-label">Type </span> {{element.type}} </td>
+      <td mat-cell *matCellDef="let element">
+        <span class="mobile-label">Type </span> {{element.type}} </td>
     </ng-container>
 
     <!-- actions Column -->
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Action</th>
-      <td mat-cell *matCellDef="let element"><span class="mobile-label">Action</span>
+      <td mat-cell *matCellDef="let element">
+        <span class="mobile-label">Action</span>
         <button mat-raised-button color="primary" type="button" (click)="onEdit(element)">Edit</button>
         <button mat-raised-button color="accent" type="button" (click)="onDelete(element.$key)">Delete</button>
       </td>
@@ -52,5 +53,10 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
   </table>
 </div>
+
+<ng-template #emptyTable>
+  <p>You have not added any loans</p>
+</ng-template>

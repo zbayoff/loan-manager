@@ -7,13 +7,13 @@ import { LoanService } from '../shared/loan.service';
 
 @Component({
   selector: 'app-loan',
-  templateUrl: './loan.component.html',
-  styleUrls: ['./loan.component.scss']
+  templateUrl: './loan-dialog.component.html',
+  styleUrls: ['./loan-dialog.component.scss']
 })
 export class LoanComponent implements OnInit {
 
   constructor(private loanService: LoanService, private dialogRef: MatDialogRef<LoanComponent>,
-    @Inject(MAT_DIALOG_DATA) data) {
+    @Inject(MAT_DIALOG_DATA) public data: any) {
 
      }
 
@@ -49,8 +49,9 @@ export class LoanComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('loan dialog created');
+    // console.log('loan dialog created');
     // this.resetForm();
+
   }
 
 }

@@ -18,9 +18,11 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { environment } from '../environments/environment';
 
 import { LoansComponent } from './loans/loans.component';
-import { LoanComponent } from './loans/loan/loan.component';
+import { LoanComponent } from './loans/loan-dialog/loan-dialog.component';
 import { LoanListComponent } from './loans/loan-list/loan-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoanPayoffAmtComponent } from './loans/loan-payoff-amt/loan-payoff-amt.component';
+import { LoanPayoffTimeComponent } from './loans/loan-payoff-time/loan-payoff-time.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoansComponent,
     LoanComponent,
     LoanListComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoanPayoffAmtComponent,
+    LoanPayoffTimeComponent
   ],
   imports: [
     BrowserModule,
